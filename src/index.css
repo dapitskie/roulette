@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #0b0d14;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .font-heading {
+    font-family: 'Outfit', 'Inter', sans-serif;
+    letter-spacing: -0.01em;
+  }
+
+  :focus-visible {
+    outline: 2px solid rgba(129, 140, 248, 0.9);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Scrollbar — quiet, thin */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.22);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.4);
+}
+
+/* ——— Product surfaces ———
+   stage: tempat roda (panggung undian)
+   panel: kartu kontrol / daftar, solid bukan kaca generik */
+.stage-panel {
+  background:
+    radial-gradient(560px 300px at 50% 0%, rgba(99, 102, 241, 0.09), transparent 70%),
+    #11141c;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 18px 40px -22px rgba(0, 0, 0, 0.7);
+}
+
+.control-panel {
+  background: #12151d;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 18px 40px -22px rgba(0, 0, 0, 0.7);
+}
+
+/* Legacy aliases (dipakai bertahap, disamakan ke system baru) */
+.glass-panel {
+  background: #12151d;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 18px 40px -22px rgba(0, 0, 0, 0.7);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.glass-panel-glow {
+  background: #151924;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 24px 50px -20px rgba(0, 0, 0, 0.75);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.glass-input {
+  background: #0d1017;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.glass-input::placeholder {
+  color: #5b6474;
+}
+.glass-input:hover:not(:disabled) {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+.glass-input:focus {
+  border-color: rgba(129, 140, 248, 0.7);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.18);
+  outline: none;
+}
+
+/* Section label — satu gaya untuk semua panel */
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8b93a7;
+}
+
+/* Wheel bezel — metal gelap, bukan neon */
+.wheel-bezel {
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 0 0 8px #171b25,
+    0 0 0 9px rgba(255, 255, 255, 0.08),
+    0 24px 50px -18px rgba(0, 0, 0, 0.8);
+}
+
+/* Range slider — satu gaya */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 999px;
+  background: #232839;
+  outline-offset: 4px;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: #e2e8f0;
+  border: 3px solid #4f46e5;
+  cursor: pointer;
+}
+input[type="range"]::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #e2e8f0;
+  border: 3px solid #4f46e5;
+  cursor: pointer;
+}
+input[type="range"]:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
